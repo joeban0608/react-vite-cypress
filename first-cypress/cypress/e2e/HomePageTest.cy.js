@@ -1,17 +1,17 @@
-const onClickCount = (initialCount = 0, maxCount = 5) => {
-  let count = initialCount;
-  while (count < maxCount) {
-    cy.get(`[data-test-id='cypress-count-button']`)
-      .should("exist")
-      .should("have.text", `count is ${count}`);
-    count++;
-    cy.wait(2000);
-    cy.get(`[data-test-id='cypress-count-button']`).click();
-    cy.get(`[data-test-id='cypress-count-button']`)
-      .should("exist")
-      .should("have.text", `count is ${count}`);
-  }
-};
+// const onClickCount = (initialCount = 0, maxCount = 5) => {
+//   let count = initialCount;
+//   while (count < maxCount) {
+//     cy.get(`[data-test-id='cypress-count-button']`)
+//       .should("exist")
+//       .should("have.text", `count is ${count}`);
+//     count++;
+//     cy.wait(2000);
+//     cy.get(`[data-test-id='cypress-count-button']`).click();
+//     cy.get(`[data-test-id='cypress-count-button']`)
+//       .should("exist")
+//       .should("have.text", `count is ${count}`);
+//   }
+// };
 
 describe("visit home page ", () => {
   it("passes", () => {
@@ -43,6 +43,6 @@ describe("count button ", () => {
 
   it("確認點擊五次後，每次 count + 1", () => {
     cy.visit("http://192.168.50.40:5174/");
-    onClickCount();
+    cy.onClickCount();
   });
 });
